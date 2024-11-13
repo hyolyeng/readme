@@ -1,0 +1,14 @@
+Content:
+
+<Army man>"Rebels. Traitors. Murderers. Dissidents. Thieves. You are the scum that has floated up to the surface. A less civilized society would have put you to the sword the moment you were caught. We believe in our ideals. Strength through adversity, righteousness through struggle. If you survive, you will be stronger for it. Make it to the outpost, and a place in the Host is waiting for you, your crimes forgiven."</Army man>
+
+<Boy across>"We're allowed to cooperate,"</Boy across>
+<Boy across>"We stand a better chance of survival if it's us against them instead of everyone for themselves. We can --"</Boy across>
+
+<Girl>"Get the fuck off me!"</Girl>
+<Girl>"Help me!"</Girl>
+
+<Protagonist>"Toto, I've got a feeling we're not in Kansas anymore,"</Protagonist>
+
+<Protagonist>"Did I just level up?"</Protagonist>
+</tagged_dialogue>

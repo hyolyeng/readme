@@ -1,0 +1,25 @@
+{
+  "name": "readme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "elevenlabs-node": "^2.0.3",
+    "epub2": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "elevenlabs": "^0.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
