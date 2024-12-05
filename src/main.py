@@ -62,7 +62,7 @@ def split_into_chunks(content: str, chunk_size: int = 20000) -> list[str]:
 class DataclassJSONEncoder(json.JSONEncoder):
     """Custom JSON encoder for serializing dataclass objects.
 
-    Extends the default JSON encoder to handle dataclasses and datetime objects.
+    Extends the default JSON encoder to handle dataclasses
     """
 
     def default(self, o: Any) -> Any:
@@ -76,9 +76,6 @@ class DataclassJSONEncoder(json.JSONEncoder):
         """
         if hasattr(o, "__dict__"):
             return asdict(o)
-        # Handle other non-serializable types
-        if isinstance(o, datetime.datetime):
-            return o.isoformat()
         return super().default(o)
 
 
@@ -149,9 +146,9 @@ async def main(
                 )
             continue
 
-        # Write chunk to file for debugging. Not used elsewhere.
-        chunk_file = Path("chunk.txt")
-        chunk_file.write_text(chunk)
+        # # Write chunk to file for debugging. Not used elsewhere.
+        # chunk_file = Path("chunk.txt")
+        # chunk_file.write_text(chunk)
         dialogues = tag_dialogues(chunk, use_cache=use_cache)
         speakers = set(d.speaker for d in dialogues)
 
@@ -186,7 +183,7 @@ async def main(
         # Convert dialogues to list of dicts for split_content_by_speaker
         content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
 
-        result_file = Path(f"result-{i}.json")
+        result_file = Path(f"cache/result-{i}.json")
         result_file.write_text(
             json.dumps(
                 {"content": content_split, "voices": speakers_to_voices},
@@ -206,9 +203,8 @@ async def main(
         # Combine all audio files into a single MP3 per chunk
         if audio_paths:
             combined = AudioSegment.empty()
-            for audio_path in tqdm(audio_paths, desc="Combining"):
-                next_segment = AudioSegment.from_mp3(audio_path)
-                combined += next_segment
+            for audio_path in audio_paths:
+                combined += AudioSegment.from_mp3(audio_path)
 
             output_dir = Path("audio-output")
             output_dir.mkdir(parents=True, exist_ok=True)

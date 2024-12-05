@@ -1,0 +1,62 @@
+
+Unique speakers identified:
+1. Fenn
+2. Bethel
+3. Valencia
+4. Amaryllis
+5. Grak
+6. Juniper (the narrator, though his dialogue is not explicitly marked)
+
+Note: The majority of the text is narration, with only a few instances of direct dialogue.
+</scratchpad>
+
+<tagged_content>
+<Bethel>"The issue, I believe, will be that Valencia is incapable of properly wielding much of it,"</Bethel>
+<Bethel>"Anything that requires will on the part of the user would be useless, which includes many of the best armors I took."</Bethel>
+
+<Fenn>"Do you have that axe?"</Fenn>
+
+<Bethel>"All of it was left behind in the cavern I had made for myself,"</Bethel>
+<Bethel>"But yes, the Axe of Gilhead was among the entads I had possession of but elected not to make a part of me."</Bethel>
+
+<Juniper>"That's the one that, um, pulls blood from the bodies of the people it cuts?"</Juniper>
+
+<Bethel>"She wouldn't feel the compulsion for blood,"</Bethel>
+
+<Fenn>"She'd get bloody though,"</Fenn>
+<Fenn>"That would be pretty neat though, right? She would come into battle wearing white, then I'd throw her the axe, and she'd be stained red with blood in an instant. It would be badass."</Fenn>
+
+<Valencia>"You've been watching too much anime,"</Valencia>
+
+<Fenn>"You're going to criticize my choice of media?"</Fenn>
+
+<Juniper>"It does seem really impractical,"</Juniper>
+<Juniper>"Maybe if we had a way to clean the blood?"</Juniper>
+
+<Amaryllis>"We should transfer all of it here anyway,"</Amaryllis>
+<Amaryllis>"We can test the entads out for usability. A random hole in a vast stretch of rock nine miles down the Boundless Pit is a wonderfully obscure place to store things, but it's lacking in accessibility."</Amaryllis>
+
+<Juniper>"Let's take the teleportation key and grab them then,"</Juniper>
+
+<Fenn>"Hard pass from me,"</Fenn>
+<Fenn>"You can take the glove, but this doesn't at all seem like a six person job, and I'm exercising my rights as the group's laziest member."</Fenn>
+
+<Amaryllis>"I have things to do here,"</Amaryllis>
+<Amaryllis>"Actual, legitimate things, not that it seems to matter if Fenn's excuse is that she's lazy."</Amaryllis>
+
+<Juniper>"I'll go,"</Juniper>
+<Juniper>"I wouldn't mind some company though. Grak?"</Juniper>
+
+<Grak>"Why?"</Grak>
+
+<Juniper>"I don't know,"</Juniper>
+<Juniper>"If you don't want to, that's fine. I'm not sure we have anything to talk about, but worst case scenario, we spend a handful of minutes scooping up all the crap we left behind, and then an hour and a half in halting conversation while I practice my Groglir."</Juniper>
+
+<Grak>"I do not think Language means what you think it means,"</Grak>
+<Grak>"Your pursuit of the skill has not borne fruit."</Grak>
+
+<Juniper>"Well, either way,"</Juniper>
+<Juniper>"I'm getting close to functional fluency, even without the skill. I think it's probably healthy for me to be forced to do a few things the hard way."</Juniper>
+
+<Grak>"I have nothing else to do,"</Grak>
+</tagged_content>

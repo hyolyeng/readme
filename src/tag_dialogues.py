@@ -43,7 +43,6 @@ def _find_dialogue_in_content(content: str, current_pos: int, dialogue: Dialogue
 
             results.append(Dialogue(speaker=dialogue.speaker, text=remainder))
             return results, remainder_pos + len(remainder)
-    breakpoint()
     raise Exception(
         f"no matching dialogue: {dialogue.text}, {current_pos}, {content[current_pos:10]}"
     )
@@ -216,9 +215,17 @@ def split_content_by_speaker(content: str, dialogues: list[Dialogue]) -> list[Di
 
         # Add any narration before this dialogue
         if dialogue_pos > current_pos:
-            narration = content[current_pos:dialogue_pos].strip('"').strip("'").strip()
+            narration = content[current_pos:dialogue_pos]
+            # Remove quotes and extra punctuation from narration
+            narration = narration.strip('"').strip("'").strip(',"').strip()
             if narration:
-                result.append(Dialogue(speaker="NARRATOR", text=narration))
+                result.append(
+                    Dialogue(
+                        speaker="NARRATOR",
+                        # Add periods to things that look like section headers.
+                        text=re.sub(r"(?<!\.)\n\n", ".\n\n", narration),
+                    )
+                )
 
         # Add the dialogue
         result.append(dialogue)
