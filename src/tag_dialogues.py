@@ -21,10 +21,10 @@ def _find_dialogue_in_content(content: str, current_pos: int, dialogue: Dialogue
         search = " ".join(dialogue_words[0:curr])
         dialogue_pos = content.find(search, current_pos)
         results = []
-        
+
         if dialogue_pos > current_pos:
             # add narration before this dialogue
-            narration = content[current_pos:dialogue_pos].strip("\"").strip("'").strip()
+            narration = content[current_pos:dialogue_pos].strip('"').strip("'").strip()
             if narration:
                 results.append(Dialogue(speaker="NARRATOR", text=narration))
 
@@ -34,22 +34,26 @@ def _find_dialogue_in_content(content: str, current_pos: int, dialogue: Dialogue
             # get the in-between narration
             remainder = " ".join(dialogue_words[curr:])
             remainder_pos = content.find(remainder, dialogue_pos)
-            narration = content[dialogue_pos:remainder_pos].strip("\"").strip("'").strip()
+            narration = (
+                content[dialogue_pos:remainder_pos].strip('"').strip("'").strip()
+            )
             if narration:
                 results.append(Dialogue(speaker="NARRATOR", text=narration))
-            
+
             results.append(Dialogue(speaker=dialogue.speaker, text=remainder))
             return results, remainder_pos + len(remainder)
     breakpoint()
-    raise Exception(f"no matching dialogue: {dialogue.text}, {current_pos}, {content[current_pos:10]}")
+    raise Exception(
+        f"no matching dialogue: {dialogue.text}, {current_pos}, {content[current_pos:10]}"
+    )
 
 
 def tag_dialogues(content: str, use_cache=True) -> list[Dialogue]:
     """Use Claude to identify speakers and tag dialogue"""
-    anthropic = Anthropic(api_key=os.environ.get('ANTHROPIC_API_KEY'))
+    anthropic = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
     # Generate hash of content for caching
-    
+
     content_hash = hashlib.sha256(content.encode()).hexdigest()
     cache_file = f"anthropic-response-{content_hash}.txt"
 
@@ -60,7 +64,7 @@ def tag_dialogues(content: str, use_cache=True) -> list[Dialogue]:
                 result = f.read()
         except Exception as e:
             result = None
-    
+
     if not result:
         msg = anthropic.messages.create(
             model="claude-3-5-sonnet-20240620",
@@ -124,7 +128,7 @@ Mary
 </example>
 </examples>
 
-                        """
+                        """,
                         },
                         {
                             "type": "text",
@@ -139,20 +143,16 @@ Before you begin tagging, wrap your analysis inside <scratchpad> tags. This anal
 After your analysis, present the fully tagged content within <tagged_content> tags. Remember to maintain the original structure and formatting of the text, only adding the speaker tags around the dialogue portions.
 
 Important:
-1. Ensure that ALL dialogues are tagged, even if the content is very long. Process the content in chunks if necessary to avoid truncation. INCLUDE MULTIPLE SEPARATE TAGS even if they are from the same speaker. DO NOT merge tags."""
-                        }
-                    ]
+1. Ensure that ALL dialogues are tagged, even if the content is very long. Process the content in chunks if necessary to avoid truncation. INCLUDE MULTIPLE SEPARATE TAGS even if they are from the same speaker. DO NOT merge tags.""",
+                        },
+                    ],
                 },
                 {
                     "role": "assistant",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": "<scratchpad>"
-                        }
-                    ]
-                }
-            ])
+                    "content": [{"type": "text", "text": "<scratchpad>"}],
+                },
+            ],
+        )
 
         result = msg.content[0].text
 
@@ -160,8 +160,9 @@ Important:
             f.write(result)
 
     # Extract content between <tagged_content> tags
-    tagged_content = result.split('<tagged_content>')[
-        1].split('</tagged_content>')[0].strip()
+    tagged_content = (
+        result.split("<tagged_content>")[1].split("</tagged_content>")[0].strip()
+    )
 
     # Find all dialogue tags with content
     dialogues = []
@@ -171,7 +172,7 @@ Important:
         speaker = match.group(1)
         text = match.group(2)
         dialogues.append(Dialogue(speaker=speaker, text=text))
-        
+
     return dialogues
 
 
@@ -180,23 +181,23 @@ def clean_text(text):
     Replace common problematic Unicode characters with ASCII equivalents
     """
     replacements = {
-        '\u201c': '"',  # Opening double quote
-        '\u201d': '"',  # Closing double quote
-        '\u2018': "'",  # Opening single quote
-        '\u2019': "'",  # Closing single quote
-        '\u2013': '-',  # En dash
-        '\u2014': '--', # Em dash
-        '\u2026': '...', # Ellipsis
-        '\u00a0': ' ',  # Non-breaking space
+        "\u201c": '"',  # Opening double quote
+        "\u201d": '"',  # Closing double quote
+        "\u2018": "'",  # Opening single quote
+        "\u2019": "'",  # Closing single quote
+        "\u2013": "-",  # En dash
+        "\u2014": "--",  # Em dash
+        "\u2026": "...",  # Ellipsis
+        "\u00a0": " ",  # Non-breaking space
     }
-    
+
     for unicode_char, ascii_char in replacements.items():
         text = text.replace(unicode_char, ascii_char)
-    
+
     return text
 
 
-def split_content_by_speaker(content: str, dialogues: list[dict]) -> list[dict]:
+def split_content_by_speaker(content: str, dialogues: list[Dialogue]) -> list[Dialogue]:
     """
     Split content into list of dialogues, where the non-tagged narration is tagged with speaker NARRATOR.
     """
@@ -208,32 +209,31 @@ def split_content_by_speaker(content: str, dialogues: list[dict]) -> list[dict]:
     for dialogue in dialogues:
         # breakpoint()
         dialogue_text = clean_text(dialogue.text)
-        
+
         # Find position of this dialogue in content
         dialogue_pos = content.find(dialogue_text, current_pos)
-        
+
         if dialogue_pos == -1:
             to_add, new_pos = _find_dialogue_in_content(content, current_pos, dialogue)
             result.extend(to_add)
             current_pos = new_pos
             continue
-            
+
         # Add any narration before this dialogue
         if dialogue_pos > current_pos:
-            narration = content[current_pos:dialogue_pos].strip("\"").strip("'").strip()
+            narration = content[current_pos:dialogue_pos].strip('"').strip("'").strip()
             if narration:
                 result.append(Dialogue(speaker="NARRATOR", text=narration))
-        
+
         # Add the dialogue
         result.append(dialogue)
-        
+
         current_pos = dialogue_pos + len(dialogue_text)
-    
+
     # Add any remaining content as narration
     if current_pos < len(content):
-        remaining = content[current_pos:].strip("\"").strip("'").strip()
+        remaining = content[current_pos:].strip('"').strip("'").strip()
         if remaining:
             result.append(Dialogue(speaker="NARRATOR", text=remaining.rstrip()))
-    
+
     return result
-    
