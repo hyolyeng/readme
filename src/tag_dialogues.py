@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import hashlib
 import os
+from pathlib import Path
 import re
 
 from anthropic import Anthropic
@@ -53,17 +54,13 @@ def tag_dialogues(content: str, use_cache=True) -> list[Dialogue]:
     anthropic = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
     # Generate hash of content for caching
-
     content_hash = hashlib.sha256(content.encode()).hexdigest()
-    cache_file = f"anthropic-response-{content_hash}.txt"
+    cache_file = Path(f"cache/anthropic-response-{content_hash}.txt")
 
-    result = None
-    if use_cache:
-        try:
-            with open(f"cache/{cache_file}", "r") as f:
-                result = f.read()
-        except Exception as e:
-            result = None
+    if use_cache and cache_file.exists():
+        result = cache_file.read_text()
+    else:
+        result = None
 
     if not result:
         msg = anthropic.messages.create(
@@ -81,9 +78,8 @@ Please follow these steps to analyze the content and tag the dialogues:
 5. Enclose each piece of dialogue in XML tags with the speaker's name as the tag name.
 6. If a speaker cannot be determined, use <UNKNOWN_SPEAKER> tags.
 7. Do not tag narration or non-dialogue text. Omit it from the output.
-8. If the content is very lengthy, process it in manageable chunks to ensure all conversations are tagged without truncation.
-9. Speaker identifier should be stable, even if the content refers to them by nicknames or aliases.
-10. If there is narrations such as "he said" in between dialogue, make sure to split the dialogue to multiple dialogue outputs.""",
+8. Speaker identifier should be stable, even if the content refers to them by nicknames or aliases.
+9. If there is narrations such as "he said" in between dialogue, make sure to split the dialogue to multiple dialogue outputs.""",
             messages=[
                 {
                     "role": "user",
@@ -138,7 +134,7 @@ Mary
 {content}
 </content>
 
-Before you begin tagging, wrap your analysis inside <scratchpad> tags. This analysis should contain a list of all unique speakers you've identified in the text.
+Before you begin tagging, wrap your analysis inside <scratchpad> tags. This analysis should contain a list of all unique speakers you've identified in the text. Do not include any commentary or notes, just the speakers.
 
 After your analysis, present the fully tagged content within <tagged_content> tags. Remember to maintain the original structure and formatting of the text, only adding the speaker tags around the dialogue portions.
 
@@ -156,8 +152,7 @@ Important:
 
         result = msg.content[0].text
 
-        with open(cache_file, "w") as f:
-            f.write(result)
+        cache_file.write_text(result)
 
     # Extract content between <tagged_content> tags
     tagged_content = (

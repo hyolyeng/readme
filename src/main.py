@@ -9,13 +9,13 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from pydub import AudioSegment
 from tqdm import tqdm
-from typing import Any, Optional
+from typing import Any
 
 from audio_gen import Voice, assign_voices_to_speakers, generate_audio, get_voices
 from tag_dialogues import Dialogue, split_content_by_speaker, tag_dialogues
 
 
-def split_into_chunks(content: str, chunk_size: int = 30000) -> list[str]:
+def split_into_chunks(content: str, chunk_size: int = 20000) -> list[str]:
     """Break content into roughly equal sized chunks.
 
     Args:
@@ -25,21 +25,32 @@ def split_into_chunks(content: str, chunk_size: int = 30000) -> list[str]:
     Returns:
         List of content chunks, each approximately chunk_size characters
     """
+    if not content:
+        return []
+
     chunks = []
+    lines = content.split("\n")
     current_chunk = []
-    current_length = 0
+    current_size = 0
 
-    for line in content.split("\n"):
-        line_length = len(line)
+    for i, line in enumerate(lines):
+        # Calculate size including newline
+        line_size = len(line)
+        if current_chunk:  # Add newline if not first line in chunk
+            line_size += 1
 
-        if current_length + line_length > chunk_size and current_chunk:
-            # Join current chunk and add to chunks
-            chunks.append("\n".join(current_chunk))
-            current_chunk = []
-            current_length = 0
+        assert line_size <= chunk_size, f"Line {i} is too long: {line_size}"
 
-        current_chunk.append(line)
-        current_length += line_length
+        # Try to add line to current chunk
+        if current_size + line_size <= chunk_size:
+            current_chunk.append(line)
+            current_size += line_size
+        else:
+            # Start new chunk with this line
+            if current_chunk:
+                chunks.append("\n".join(current_chunk))
+            current_chunk = [line]
+            current_size = line_size
 
     # Add final chunk if there is one
     if current_chunk:
@@ -81,7 +92,13 @@ class AudioGenConfig:
     """Whether to use cached results"""
 
 
-async def main(*, input_file: Path, use_cache: bool = True, debug: bool = True) -> None:
+async def main(
+    *,
+    input_file: Path,
+    use_cache: bool = True,
+    debug: bool = True,
+    start_index: int = 0,
+) -> None:
     """Main entry point for the audio generation pipeline.
 
     Processes an input text file by:
@@ -106,46 +123,36 @@ async def main(*, input_file: Path, use_cache: bool = True, debug: bool = True) 
     # Track the last chunk index where each speaker was seen
     speaker_last_seen: dict[str, int] = defaultdict(int)
 
-    START_INDEX = 0
-
     all_voices = get_voices()
 
-    audio_paths = []
     cache_dir = Path("cache")
     cache_dir.mkdir(exist_ok=True)
 
-    chunk_index: Optional[int] = None
-
     for i, chunk in tqdm(enumerate(chunks), total=len(chunks)):
-        chunk_index = i
-        if i < START_INDEX:
+        audio_paths = []
+        if i < start_index:
             continue
-
-        # Stop early if debug mode is enabled
-        if debug and i > 4:
-            print(f"Stopping because {debug=}")
-            return
 
         result_cache_file = cache_dir / f"result-{i}.json"
         if use_cache and result_cache_file.exists():
-            try:
-                result = json.loads(result_cache_file.read_text())
-                content = [Dialogue(**d) for d in result["content"]]
-                voices = {k: Voice(**v) for k, v in result["voices"].items()}
-                generate_audio(
-                    chunk_id=i,
-                    content_id=0,
-                    text=content[0].text,
-                    voice=voices[content[0].speaker],
+            result = json.loads(result_cache_file.read_text())
+            content = [Dialogue(**d) for d in result["content"]]
+            voices = {k: Voice(**v) for k, v in result["voices"].items()}
+            for j, content_item in enumerate(tqdm(content, desc="read cache")):
+                audio_paths.append(
+                    generate_audio(
+                        chunk_id=i,
+                        content_id=j,
+                        text=content_item.text,
+                        voice=voices.get(content_item.speaker, voices["default"]),
+                    )
                 )
-                return
-            except Exception as e:
-                print(f"no cache available for chunk {i}")
+            continue
 
+        # Write chunk to file for debugging. Not used elsewhere.
         chunk_file = Path("chunk.txt")
         chunk_file.write_text(chunk)
         dialogues = tag_dialogues(chunk, use_cache=use_cache)
-
         speakers = set(d.speaker for d in dialogues)
 
         # Update last seen index for current speakers
@@ -196,22 +203,22 @@ async def main(*, input_file: Path, use_cache: bool = True, debug: bool = True) 
                 generate_audio(chunk_id=i, content_id=j, text=text, voice=voice)
             )
 
-        break
+        # Combine all audio files into a single MP3 per chunk
+        if audio_paths:
+            combined = AudioSegment.empty()
+            for audio_path in tqdm(audio_paths, desc="Combining"):
+                next_segment = AudioSegment.from_mp3(audio_path)
+                combined += next_segment
 
-    # Combine all audio files into a single MP3
-    breakpoint()
-    if audio_paths and chunk_index is not None:
-        combined = AudioSegment.from_mp3(str(audio_paths[0]))
-        for audio_path in tqdm(audio_paths[1:], desc="Combining"):
-            next_segment = AudioSegment.from_mp3(str(audio_path))
-            combined += next_segment
+            output_dir = Path("audio-output")
+            output_dir.mkdir(parents=True, exist_ok=True)
+            final_path = output_dir / f"{i:04d}_combined.mp3"
+            combined.export(str(final_path), format="mp3")
 
-        output_dir = Path("audio-output")
-        output_dir.mkdir(parents=True, exist_ok=True)
-        final_path = output_dir / f"{chunk_index:04d}_combined.mp3"
-        combined.export(str(final_path), format="mp3")
-
-    return
+        # Stop early if debug mode is enabled
+        if debug:
+            print(f"Stopping because {debug=}")
+            break
 
 
 if __name__ == "__main__":

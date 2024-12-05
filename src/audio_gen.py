@@ -6,7 +6,6 @@ from anthropic import Anthropic
 from dataclasses import dataclass
 from dotenv import load_dotenv
 import httpx
-import json
 from openai import OpenAI
 from pathlib import Path
 from typing import Any, Literal, Optional, Union
@@ -129,9 +128,6 @@ def generate_audio_for_dialogues(dialogues: list):
 
         except Exception as e:
             print(f"Failed to generate audio for {speaker}:", e)
-
-
-# def combine_audio(files: list):
 
 
 def generate_audio(
