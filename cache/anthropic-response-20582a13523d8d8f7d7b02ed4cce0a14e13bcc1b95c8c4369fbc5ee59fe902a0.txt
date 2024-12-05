@@ -1,0 +1,39 @@
+
+Unique speakers identified:
+1. Grak
+2. Joon (the narrator, speaking in first person)
+
+Note: The majority of this text is narration, with only a small amount of direct dialogue near the end. The dialogue is primarily between Joon and Grak, with Joon speaking in Groglir (the dwarven language).
+</scratchpad>
+
+<tagged_content>
+<Joon>"Dar,"</Joon>
+
+<Grak>"Dar,"</Grak>
+
+<Joon>"Can you tell me what happens when your penance is paid?"</Joon>
+
+<Grak>"Did Amaryllis or Valencia tell you?"</Grak>
+
+<Joon>"I did not ask. You did not want to share and I thought it would be rude to take that ... information, if they have it."</Joon>
+
+<Grak>"I appreciate that."</Grak>
+
+<Joon>"I know you are a private person. I am sorry that … that all of your efforts at being a good midwife for Amaryllis came to less than we had hoped."</Joon>
+
+<Grak>"It's not that,"</Grak>
+
+<Joon>"I did not think that it was that. I was only thinking about how hard you must have worked and how I would feel in your place. You spent more time in the, uh … In the box."</Joon>
+
+<Grak>"Aderanhe,"</Grak>
+
+<Joon>"You spent more time than Fenn and I. It wore on me. If my months of training had been swept aside I would have been frustrated and sad. You are probably better at enduring things than I am."</Joon>
+
+<Grak>"These things happen,"</Grak>
+
+<Joon>"It was something I was thinking about. I was trying to put myself in your shoes. I do not think that I do that enough."</Joon>
+
+<Joon>"Tell me about your friends at the Athenaeum,"</Joon>
+
+<Joon>"I did not listen very well when you told me the first time. You left details out, too."</Joon>
+</tagged_content>

@@ -1,0 +1,306 @@
+
+Unique speakers identified:
+1. Ding
+2. Grak
+3. Joon (the narrator)
+4. Nadi
+5. Fenn
+6. Bethel
+7. Amaryllis
+8. Valencia
+9. Jorge (mentioned, but doesn't speak directly)
+</scratchpad>
+
+<tagged_content>
+<Grak>"I had not known what would await me in the world outside of Darili Irid, only that I wanted it,"</Grak>
+
+<Grak>"I had always found the dwarfhold too small, too ordered, too limited, even though I loved and honored Darili Irid. My position as most-pure put burdens on me. There were many duties to attend to. Learning the way of wards at Barriers was another one of those duties, one I had sought out because it was as much freedom as I had thought I would ever get in life. I wanted to try new things, do you understand? I had no itch for coitus, but Ding was a friend, and if I could help him to scratch that itch, I was eager to assist him."</Grak>
+
+<Joon>"You were not that to him?"</Joon>
+
+<Grak>"When the act was done he had no interest,"</Grak>
+
+<Grak>"A switch had been flipped. He did not avoid me, but to him it was as he said, a need to be fulfilled with assistance and nothing more. He did not care about the intimacy."</Grak>
+
+<Grak>"I cared. Nadi did too."</Grak>
+
+<Grak>"She was upset when she found out,"</Grak>
+
+<Grak>"She felt like she had been betrayed. Ding explained it as a moment of craving, nothing important or meaningful to him. I felt hurt by that. He was my first krin, or so I had thought. We all wanted different things from each other. Nadi wanted a pair-bonding, I wanted continued intimacy, and Ding only wanted to not have his mind clouded by thoughts of fornication. I understood none of that at the time. To me it was as if he had declared us krin, then rescinded that the next day. My feelings toward Nadi were more complicated, especially after they had sex together."</Grak>
+
+<Joon>"Oh,"</Joon>
+
+<Joon>"They had a relationship?"</Joon>
+
+<Grak>"No,"</Grak>
+
+<Grak>"Ding felt his mind clouded by need again, which filled him with desire for outlet. Nadi … she had positioned herself to be alone with him. She offered herself to him, but I do not know what she was thinking."</Grak>
+
+<Joon>"How did it end?"</Joon>
+
+<Grak>"If Nadi had hoped he would feel some affection toward her, she was let down,"</Grak>
+
+<Grak>"She felt used, after, which was an accurate understanding of the situation. We all felt betrayed by each other, for different reasons. It was the end of our friendship."</Grak>
+
+<Joon>"I'm sorry,"</Joon>
+
+<Joon>"They were your best friends. It can be hard to have things fall apart. What did you do after?"</Joon>
+
+<Grak>"There were many dwarves at Barriers,"</Grak>
+
+<Grak>"I spent a year cloistering myself with them. We ate dwarven food, sang dwarven music, and pretended that we were in a dwarfhold. I had a proper krin."</Grak>
+
+<Grak>"I had liked that feeling of need from Ding. It was not something that a dwarf could provide. Not a traditional one."</Grak>
+
+<Joon>"On the train,"</Joon>
+
+<Joon>"Magor. He seemed aggressive."</Joon>
+
+<Grak>"He was not traditional,"</Grak>
+
+<Grak>"We had a good time together. I have thought about inviting him to the Isle of Poran."</Grak>
+
+<Joon>"That serious?"</Joon>
+
+<Grak>"No. He was barely krinrael."</Grak>
+
+<Grak>"I am lonesome."</Grak>
+
+<Joon>"You have us,"</Joon>
+
+<Joon>"I know that it does not feel like it --"</Joon>
+
+<Grak>"It does,"</Grak>
+
+<Joon>"Then I do not …"</Joon>
+
+<Joon>"I was going to say that we are not dwarves. You do not think that important though? You said a year cloistered with other dwarves. After that?"</Joon>
+
+<Grak>"It was too much like home,"</Grak>
+
+<Grak>"I loved it, but it grated. I abandoned the false dwarfhold and made new friends of all species, most of them other students at Barriers. I had a few krin. One of them lasted three years, though there was no question of anything more."</Grak>
+
+<Joon>"But you weren't lonesome then?"</Joon>
+
+<Grak>"No,"</Grak>
+
+<Grak>"I had a different idea of what it meant to be Grakhuil Leadbraids, back then."</Grak>
+
+<Joon>"You said --"</Joon>
+
+<Joon>"Your biography, given to me by the game, said that you returned to Darili Irid and were entered into an arranged marriage."</Joon>
+
+<Grak>"Yes,"</Grak>
+
+<Grak>"I had built a life at Barriers. It was stripped away when I made the long journey home. I was most-pure, and clan warder on top of that. It was a return to obligations. My father had decided upon a mate for me, not mere krin but a father to my children. Gone so long, with letters home that became fewer as the years passed, they thought I needed something to tie me more tightly to the clan. At the prospect of being tied, I realized that it was not the life I wanted, in spite of my affection for the place."</Grak>
+
+<Joon>"But now you want back,"</Joon>
+
+<Joon>"Or … not,"</Joon>
+
+<Joon>"You keep using the word penance,"</Joon>
+
+<Joon>"A self-punishment?"</Joon>
+
+<Joon>"Something happened to Darili Irid,"</Joon>
+
+<Joon>"You came back. They tried to force a life on you. You left. And then -- I don't want to guess at what tragedy happened because they didn't have a warder. I will guess, if you don't tell me."</Joon>
+
+<Grak>"It is time for us to go back,"</Grak>
+
+<Joon>"Something horrible,"</Joon>
+
+<Joon>"An invasion? A theft?"</Joon>
+
+<Joon>"Assassination?"</Joon>
+
+<Grak>"Accident,"</Grak>
+
+<Grak>"A ward failed. They had hired a warder, cheap, part-time, to replace the old dwarf I was meant to take over from. He had little training. Little knowledge. Three years, provisionally licensed, but,"</Grak>
+
+<Grak>"Darili Irid was deep beneath the surface. There were complex wards to shape the flow of air, to keep it clean. We used processes that were dangerous. When the ward failed, the air fouled, quickly."</Grak>
+
+<Joon>"Oh,"</Joon>
+
+<Joon>"Your father … ?"</Joon>
+
+<Grak>"Everyone,"</Grak>
+
+<Joon>"Oh,"</Joon>
+
+<Joon>"Shit. That's,"</Joon>
+
+<Joon>"Can I -- how many?"</Joon>
+
+<Grak>"Two thousand, three hundred, forty-six,"</Grak>
+
+<Grak>"Everyone."</Grak>
+
+<Joon>"I am sorry,"</Joon>
+
+<Joon>"It wasn't your fault,"</Joon>
+
+<Joon>"Whatever mistake happened, you do not owe them your life."</Joon>
+
+<Grak>"I do,"</Grak>
+
+<Joon>"Okay,"</Joon>
+
+<Joon>"I'm not going to force the issue. We'll help you get your gold, ideally before the two years are up, and then I'll come with you to Darili Irid."</Joon>
+
+<Fenn>"I don't understand why someone would use some of this stuff,"</Fenn>
+
+<Bethel>"Mortals are attracted to power,"</Bethel>
+
+<Bethel>"The ones who tried to raid me were more attracted than most. Some of them were desperate, and many of these tools are the tools of desperation."</Bethel>
+
+<Amaryllis>"Armor is going to be a problem,"</Amaryllis>
+
+<Amaryllis>"Most of it will change shape to fit whoever wears it, at least to some extent, but I'm not sure that will work for Valencia."</Amaryllis>
+
+<Joon>"We're talking about cursed armor here,"</Joon>
+
+<Joon>"Maybe let's not put random strangers into it?"</Joon>
+
+<Joon>"We'll need to test some of this stuff,"</Joon>
+
+<Joon>"Test whether the armor will conform to Valencia, test which parts of which abilities work, et cetera. Shouldn't take us more than a day, I don't think."</Joon>
+
+<Valencia>"Was any of this meant for me?"</Valencia>
+
+<Bethel>"Meant for you?"</Bethel>
+
+<Joon>"The Dungeon Master nudges things sometimes,"</Joon>
+
+<Joon>"He, uh, sets things up. Let's say there are a billion entads, most of them not great, right? Well, we've come across what, maybe two dozen so far? Much more, if you include all the ones that nominally belong to Amaryllis, or the ones that I've heard about in passing, and definitely if you include Uther's stuff. But of the ones that we actually have, or have interacted with, a hugely disproportionate number have been ones that I personally created, or which were used in the games that I played. It's proof of the Dungeon Master's thumb on the scale somewhere in the process."</Joon>
+
+<Bethel>"Ah,"</Bethel>
+
+<Bethel>"So the thought is that this powerful entity sent people to their deaths inside of me because he foresaw that I would elect not to take them, that you would come to me, that I would choose not to kill you, and that Valencia would both be present in this party and live through her altercation at Headwater."</Bethel>
+
+<Fenn>"Valencia is invincible,"</Fenn>
+
+<Valencia>"Am not,"</Valencia>
+
+<Fenn>"Are too,"</Fenn>
+
+<Fenn>"I've never seen you take a hit. 'If you prick her, does she not bleed?' Well, no, because you're not going to be able to prick her, she'll dodge out of the way of the needle and then break your arm in two places."</Fenn>
+
+<Valencia>"I said I was sorry,"</Valencia>
+
+<Fenn>"Never said I was upset,"</Fenn>
+
+<Amaryllis>"You swore a lot,"</Amaryllis>
+
+<Amaryllis>"And then said that you were going to break her arm in her sleep."</Amaryllis>
+
+<Fenn>"I say a lot of things,"</Fenn>
+
+<Joon>"Back to the matter at hand,"</Joon>
+
+<Joon>"Yes, it's very possible that the Dungeon Master either foresaw everything and nudged it into the right configuration, or foresaw bits and pieces of things and set up a bunch of possibilities. Maybe … I mean, it's possible that each of these was intended for a different possible future, and the ones that seem obviously meant for Valencia are just because that's the timeline we ended up in, right?"</Joon>
+
+<Fenn>"I'm kind of over the existential stuff,"</Fenn>
+
+<Fenn>"Bible study helped a lot with that."</Fenn>
+
+<Amaryllis>"It's also possible that the Dungeon Master cheats more than he lets on,"</Amaryllis>
+
+<Amaryllis>"He simply placed that armor there for Valencia a few days ago and retroactively altered all memories and evidence to fit a world where it had always been there."</Amaryllis>
+
+<Joon>"Sure,"</Joon>
+
+<Joon>"If we're talking about random bullshit powers, yes, that's entirely possible."</Joon>
+
+<Valencia>"I'm going to try the armor on,"</Valencia>
+
+<Joon>"Sure,"</Joon>
+
+<Joon>"We'll test it in the least harmful way possible."</Joon>
+
+<Amaryllis>"It's to our benefit now,"</Amaryllis>
+
+<Amaryllis>"In the future? Maybe not so much. Also in the past, though it's hard to say."</Amaryllis>
+
+<Fenn>"She's still salty about the password-protected tattoo variant,"</Fenn>
+
+<Amaryllis>"Because it was bullshit,"</Amaryllis>
+
+<Amaryllis>"The whole fucking thing, and yes, I'm still quote salty unquote about it. We were specifically fucked by a black swan."</Amaryllis>
+
+<Fenn>"Like Leda,"</Fenn>
+
+<Joon>"Sometimes there are black swans,"</Joon>
+
+<Joon>"I mean, you don't include them in narratives without some foreshadowing or multiple viewpoints, which basically means that you don't do them in tabletop games, but … I thought maybe that was the point?"</Joon>
+
+<Fenn>"The fuck kind of point is that?"</Fenn>
+
+<Bethel>"I'm inclined to agree with the spirit of that question,"</Bethel>
+
+<Amaryllis>"No, I understand it,"</Amaryllis>
+
+<Amaryllis>"Fenn, did you ever get around to reading A Game of Thrones?"</Amaryllis>
+
+<Fenn>"Nope,"</Fenn>
+
+<Fenn>"If you wanted me to read books, you shouldn't have invented television."</Fenn>
+
+<Amaryllis>"It's fine,"</Amaryllis>
+
+<Amaryllis>"It was just a good example. Essentially, if you have a body of work built up, that engenders expectations, and in the context of an audience's reaction to narrative --"</Amaryllis>
+
+<Fenn>"Snooze, pass, I'm done with it,"</Fenn>
+
+<Fenn>"Look, I'm sorry if you find it interesting or worth spending time on, but unless it's actually going to help us in some way, I don't give a crap, and I don't think anyone else should either."</Fenn>
+
+<Amaryllis>"Fine,"</Amaryllis>
+
+<Amaryllis>"But you should know that it was a really interesting point."</Amaryllis>
+
+<Fenn>"I'll put it on my internal scoreboard,"</Fenn>
+
+<Joon>"Is this how you two are when you're alone together?"</Joon>
+
+<Fenn>"Yes, exactly like that,"</Fenn>
+
+<Fenn>"But usually we're naked and having a pillow fight while we talk."</Fenn>
+
+<Valencia>"She does that with you too?"</Valencia>
+
+<Amaryllis>"Are you using a devil to sell the joke?"</Amaryllis>
+
+<Fenn>"Well, it was funny, I'll give you that,"</Fenn>
+
+<Amaryllis>"You really need to stop doing that,"</Amaryllis>
+
+<Amaryllis>"If they find out what's happening, and trace it back to you, they have methods of influencing Aerb. The hells haven't been united since the time of the Apocalypse Demon, and the dent Uther put in our cosmology has helped ensure only the weak can make it up, but trillions of infernals unified again isn't really something that we should risk for a joke."</Amaryllis>
+
+<Valencia>"I'll just kill them all,"</Valencia>
+
+<Valencia>"Jorge thinks that I should anyway."</Valencia>
+
+<Fenn>"That sounds like exactly the sort of thing we should have a long talk about in the Council of Arches first,"</Fenn>
+
+<Fenn>"I don't think we included a clause about genocide in the charter, but maybe we should have."</Fenn>
+
+<Joon>"If we're going to do it, better we do it as quickly as possible,"</Joon>
+
+<Joon>"I'm just saying, if there are a trillion people in the hells, which there might be, and they're being … I don't know, physically and psychologically tortured, then murdering all the devils and demons is probably the most possible good we can do, right?"</Joon>
+
+<Valencia>"That's what Jorge said,"</Valencia>
+
+<Amaryllis>"How many tendrils do you have?"</Amaryllis>
+
+<Amaryllis>"Last I checked, it was seventeen, and it took you some time to move them around."</Amaryllis>
+
+<Valencia>"I have more than ten thousand,"</Valencia>
+
+<Valencia>"But I'm close to my limit, for now, because there's starting to be a little strain. I was able to add more after Juniper leveled up."</Valencia>
+
+<Amaryllis>"We're the military of this country right now,"</Amaryllis>
+
+<Amaryllis>"Against a single fireteam, I tend to like our odds, depending on their composition, especially if they attack us in this house, in which case they have virtually no chance. That said, it would be idiotic if we died because I wasn't willing to spend a few thousand obols on firearms. And if someone comes for us, then after what happened with Larkspur, I doubt that they'll err on the side of underestimating us."</Amaryllis>
+
+<Valencia>"Jorge and I are going on a date,"</Valencia>
+</tagged_content>
