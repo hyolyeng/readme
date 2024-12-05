@@ -187,7 +187,7 @@ async def main(*, input_file: Path, use_cache: bool = True, debug: bool = True) 
             )
         )
 
-        for j, content in enumerate(content_split):
+        for j, content in enumerate(tqdm(content_split, desc=f"Chunk {i}")):
             text = content.text
             speaker = content.speaker
             voice = speakers_to_voices[speaker]
@@ -199,9 +199,10 @@ async def main(*, input_file: Path, use_cache: bool = True, debug: bool = True) 
         break
 
     # Combine all audio files into a single MP3
+    breakpoint()
     if audio_paths and chunk_index is not None:
         combined = AudioSegment.from_mp3(str(audio_paths[0]))
-        for audio_path in audio_paths[1:]:
+        for audio_path in tqdm(audio_paths[1:], desc="Combining"):
             next_segment = AudioSegment.from_mp3(str(audio_path))
             combined += next_segment
 

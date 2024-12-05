@@ -5,20 +5,22 @@ from enum import Enum
 from anthropic import Anthropic
 from dataclasses import dataclass
 from dotenv import load_dotenv
+import httpx
+import json
 from openai import OpenAI
 from pathlib import Path
-from typing import Literal, Union
+from typing import Any, Literal, Optional, Union
 
 load_dotenv()
 
 OpenAIVoice = Literal["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
 
+client: Optional[Any] = None
 try:
     from elevenlabs import play
     from elevenlabs.client import ElevenLabs
 
     client = ElevenLabs(timeout=60 * 10)
-
 except ImportError:
     pass
 
@@ -27,6 +29,7 @@ from tag_dialogues import Dialogue
 
 class TTSProvider(Enum):
     ELEVENLABS = "elevenlabs"
+    ELEVENLABS_HTTP = "elevenlabs_http"
     OPENAI = "openai"
 
 
@@ -136,7 +139,7 @@ def generate_audio(
     content_id: int,
     text: str,
     voice: Voice,
-    provider: TTSProvider = TTSProvider.OPENAI,
+    provider: TTSProvider = TTSProvider.ELEVENLABS_HTTP,
 ):
     output_dir = "audio-output"
     audio_file = Path(output_dir) / f"{chunk_id:04d}" / f"{content_id:04d}.mp3"
@@ -148,12 +151,29 @@ def generate_audio(
     audio_file.parent.mkdir(parents=True, exist_ok=True)
 
     if provider == TTSProvider.ELEVENLABS:
-        audio = client.generate(
+        audio = client.generate(  # type: ignore
             text=text,
             voice=voice.name,
             model="eleven_turbo_v2_5",
             request_options={"max_retries": 5},
         )
+    elif provider == TTSProvider.ELEVENLABS_HTTP:
+        url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice.voice_id}"
+        headers = {
+            "xi-api-key": os.environ.get("ELEVENLABS_API_KEY", ""),
+            "Content-Type": "application/json",
+        }
+        data = {
+            "text": text,
+            "model_id": "eleven_turbo_v2",
+            # Stability is from 0 to 100
+            "voice_settings": {"stability": 0.25, "similarity_boost": 0.81},
+        }
+        transport = httpx.HTTPTransport(retries=10)
+        with httpx.Client(timeout=60.0 * 10, transport=transport) as client:
+            response = client.post(url, headers=headers, json=data)
+            response.raise_for_status()
+            audio = response.content
     else:  # OpenAI
         openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=10)
         response = openai_client.audio.speech.create(
@@ -168,9 +188,9 @@ def generate_audio(
     return audio_file
 
 
-def get_voices(provider: TTSProvider = TTSProvider.OPENAI) -> list[Voice]:
+def get_voices(provider: TTSProvider = TTSProvider.ELEVENLABS_HTTP) -> list[Voice]:
     if provider == TTSProvider.ELEVENLABS:
-        voices = client.voices.get_all().voices
+        voices = client.voices.get_all().voices  # type: ignore
         return [
             Voice(
                 voice_id=v.voice_id,
@@ -179,6 +199,25 @@ def get_voices(provider: TTSProvider = TTSProvider.OPENAI) -> list[Voice]:
                 name=v.name,
             )
             for v in voices
+        ]
+    elif provider == TTSProvider.ELEVENLABS_HTTP:
+        url = "https://api.elevenlabs.io/v1/voices"
+        headers = {"xi-api-key": os.environ.get("ELEVENLABS_API_KEY", "")}
+
+        with httpx.Client(
+            timeout=30.0, transport=httpx.HTTPTransport(retries=3)
+        ) as client:
+            response = client.get(url, headers=headers)
+            response.raise_for_status()
+            voices_data = response.json()["voices"]
+        return [
+            Voice(
+                voice_id=v["voice_id"],
+                description=v.get("description", ""),
+                labels=v.get("labels", {}),
+                name=v["name"],
+            )
+            for v in voices_data
         ]
     else:
         return [
