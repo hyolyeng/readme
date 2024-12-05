@@ -1,0 +1,123 @@
+
+Juniper
+Grak
+Ding
+Nadi
+</scratchpad>
+
+<tagged_content>
+<Juniper>"Dar,"</Juniper>
+
+<Grak>"Dar,"</Grak>
+
+<Juniper>"Can you tell me what happens when your penance is paid?"</Juniper>
+
+<Grak>"Did Amaryllis or Valencia tell you?"</Grak>
+
+<Juniper>"I did not ask,"</Juniper>
+<Juniper>"You did not want to share and I thought it would be rude to take that ... information, if they have it."</Juniper>
+
+<Grak>"I appreciate that."</Grak>
+
+<Juniper>"I know you are a private person,"</Juniper>
+<Juniper>"I am sorry that … that all of your efforts at being a good midwife for Amaryllis came to less than we had hoped."</Juniper>
+
+<Grak>"It's not that,"</Grak>
+
+<Juniper>"I did not think that it was that,"</Juniper>
+<Juniper>"I was only thinking about how hard you must have worked and how I would feel in your place. You spent more time in the, uh …"</Juniper>
+<Juniper>"In the box."</Juniper>
+
+<Grak>"Aderanhe,"</Grak>
+
+<Juniper>"You spent more time than Fenn and I,"</Juniper>
+<Juniper>"It wore on me. If my months of training had been swept aside I would have been frustrated and sad. You are probably better at enduring things than I am."</Juniper>
+
+<Grak>"These things happen,"</Grak>
+
+<Juniper>"It was something I was thinking about,"</Juniper>
+<Juniper>"I was trying to put myself in your shoes. I do not think that I do that enough."</Juniper>
+
+<Juniper>"Tell me about your friends at the Athenaeum,"</Juniper>
+
+<Juniper>"I did not listen very well when you told me the first time,"</Juniper>
+<Juniper>"You left details out, too."</Juniper>
+
+<Grak>"I had not known what would await me in the world outside of Darili Irid, only that I wanted it,"</Grak>
+<Grak>"I had always found the dwarfhold too small, too ordered, too limited, even though I loved and honored Darili Irid. My position as most-pure put burdens on me. There were many duties to attend to. Learning the way of wards at Barriers was another one of those duties, one I had sought out because it was as much freedom as I had thought I would ever get in life. I wanted to try new things, do you understand? I had no itch for coitus, but Ding was a friend, and if I could help him to scratch that itch, I was eager to assist him."</Grak>
+
+<Grak>"It was a mix of cultural baggage, misunderstandings, and differences of our species,"</Grak>
+<Grak>"I felt a deep kinship with Ding. To me, he was krin, or at least krinrael."</Grak>
+
+<Juniper>"You were not that to him?"</Juniper>
+
+<Grak>"When the act was done he had no interest,"</Grak>
+<Grak>"A switch had been flipped. He did not avoid me, but to him it was as he said, a need to be fulfilled with assistance and nothing more. He did not care about the intimacy."</Grak>
+<Grak>"I cared. Nadi did too."</Grak>
+
+<Grak>"She was upset when she found out,"</Grak>
+<Grak>"She felt like she had been betrayed. Ding explained it as a moment of craving, nothing important or meaningful to him. I felt hurt by that. He was my first krin, or so I had thought. We all wanted different things from each other. Nadi wanted a pair-bonding, I wanted continued intimacy, and Ding only wanted to not have his mind clouded by thoughts of fornication. I understood none of that at the time. To me it was as if he had declared us krin, then rescinded that the next day. My feelings toward Nadi were more complicated, especially after they had sex together."</Grak>
+
+<Juniper>"Oh,"</Juniper>
+<Juniper>"They had a relationship?"</Juniper>
+
+<Grak>"No,"</Grak>
+<Grak>"Ding felt his mind clouded by need again, which filled him with desire for outlet. Nadi … she had positioned herself to be alone with him. She offered herself to him, but I do not know what she was thinking."</Grak>
+
+<Juniper>"How did it end?"</Juniper>
+
+<Grak>"If Nadi had hoped he would feel some affection toward her, she was let down,"</Grak>
+<Grak>"She felt used, after, which was an accurate understanding of the situation. We all felt betrayed by each other, for different reasons. It was the end of our friendship."</Grak>
+
+<Juniper>"I'm sorry,"</Juniper>
+<Juniper>"They were your best friends. It can be hard to have things fall apart. What did you do after?"</Juniper>
+
+<Grak>"There were many dwarves at Barriers,"</Grak>
+<Grak>"I spent a year cloistering myself with them. We ate dwarven food, sang dwarven music, and pretended that we were in a dwarfhold. I had a proper krin."</Grak>
+<Grak>"I had liked that feeling of need from Ding. It was not something that a dwarf could provide. Not a traditional one."</Grak>
+
+<Juniper>"On the train,"</Juniper>
+<Juniper>"Magor. He seemed aggressive."</Juniper>
+
+<Grak>"He was not traditional,"</Grak>
+<Grak>"We had a good time together. I have thought about inviting him to the Isle of Poran."</Grak>
+
+<Juniper>"That serious?"</Juniper>
+
+<Grak>"No. He was barely krinrael."</Grak>
+<Grak>"I am lonesome."</Grak>
+
+<Juniper>"You have us,"</Juniper>
+<Juniper>"I know that it does not feel like it --"</Juniper>
+
+<Grak>"It does,"</Grak>
+
+<Juniper>"Then I do not …"</Juniper>
+<Juniper>"I was going to say that we are not dwarves. You do not think that important though? You said a year cloistered with other dwarves. After that?"</Juniper>
+
+<Grak>"It was too much like home,"</Grak>
+<Grak>"I loved it, but it grated. I abandoned the false dwarfhold and made new friends of all species, most of them other students at Barriers. I had a few krin. One of them lasted three years, though there was no question of anything more."</Grak>
+
+<Juniper>"But you weren't lonesome then?"</Juniper>
+
+<Grak>"No,"</Grak>
+<Grak>"I had a different idea of what it meant to be Grakhuil Leadbraids, back then."</Grak>
+
+<Juniper>"You said --"</Juniper>
+<Juniper>"Your biography, given to me by the game, said that you returned to Darili Irid and were entered into an arranged marriage."</Juniper>
+
+<Grak>"Yes,"</Grak>
+<Grak>"I had built a life at Barriers. It was stripped away when I made the long journey home. I was most-pure, and clan warder on top of that. It was a return to obligations. My father had decided upon a mate for me, not mere krin but a father to my children. Gone so long, with letters home that became fewer as the years passed, they thought I needed something to tie me more tightly to the clan. At the prospect of being tied, I realized that it was not the life I wanted, in spite of my affection for the place."</Grak>
+
+<Juniper>"But now you want back,"</Juniper>
+
+<Juniper>"Or … not,"</Juniper>
+
+<Juniper>"You keep using the word penance,"</Juniper>
+<Juniper>"A self-punishment?"</Juniper>
+
+<Juniper>"Something happened to Darili Irid,"</Juniper>
+<Juniper>"You came back. They tried to force a life on you. You left. And then -- I don't want to guess at what tragedy happened because they didn't have a warder. I will guess, if you don't tell me."</Juniper>
+
+<Grak>"It is time for us to go back,"</Grak>
+</tagged_content>

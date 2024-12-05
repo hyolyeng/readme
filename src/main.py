@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import pprint
 import defopt
 import json
 import re
@@ -179,6 +180,7 @@ async def main(
             new_speakers, available_voices, chunk
         )
         speakers_to_voices.update(new_speaker_assignments)
+        pprint.pprint({k: v.name for k, v in speakers_to_voices.items()})
 
         # Convert dialogues to list of dicts for split_content_by_speaker
         content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
