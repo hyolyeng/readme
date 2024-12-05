@@ -4,9 +4,10 @@ import json
 from pathlib import Path
 import re
 from collections import defaultdict
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from pydub import AudioSegment
 from tqdm import tqdm
+import defopt
 
 from audio_gen import (Voice, assign_voices_to_speakers, generate_audio,
                        get_voices)
@@ -14,7 +15,15 @@ from tag_dialogues import Dialogue, split_content_by_speaker, tag_dialogues
 
 
 def split_into_chunks(content: str, chunk_size: int = 30000) -> list[str]:
-    """Break content into roughly equal sized chunks"""
+    """Break content into roughly equal sized chunks.
+    
+    Args:
+        content: The text content to split into chunks
+        chunk_size: Maximum size of each chunk in characters
+        
+    Returns:
+        List of content chunks, each approximately chunk_size characters
+    """
     chunks = []
     current_chunk = []
     current_length = 0
@@ -39,7 +48,19 @@ def split_into_chunks(content: str, chunk_size: int = 30000) -> list[str]:
 
 
 class DataclassJSONEncoder(json.JSONEncoder):
+    """Custom JSON encoder for serializing dataclass objects.
+    
+    Extends the default JSON encoder to handle dataclasses and datetime objects.
+    """
     def default(self, obj):
+        """Convert object to a JSON serializable format.
+        
+        Args:
+            obj: The object to serialize
+            
+        Returns:
+            JSON serializable representation of the object
+        """
         if hasattr(obj, "__dict__"):
             return asdict(obj)
         # Handle other non-serializable types
@@ -48,17 +69,29 @@ class DataclassJSONEncoder(json.JSONEncoder):
         return super().default(obj)
 
 
-async def main():
-    import sys
-    if len(sys.argv) < 2:
-        print("Please provide an epub file path")
-        sys.exit(1)
+@dataclass
+class AudioGenConfig:
+    """Configuration for audio generation."""
+    input_file: Path
+    """Path to the input text file"""
+    use_cache: bool = True
+    """Whether to use cached results"""
 
-    file_path = sys.argv[1]
-    with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
 
-    use_cache = len(sys.argv) < 3 or sys.argv[2] != '--no-cache'
+async def main(*, input_file: Path, use_cache: bool = True):
+    """Main entry point for the audio generation pipeline.
+    
+    Processes an input text file by:
+    1. Splitting content into manageable chunks
+    2. Identifying speakers and assigning voices
+    3. Generating audio for each chunk
+    4. Combining audio files into final output
+    
+    Args:
+        input_file: Path to input text file
+        use_cache: If False, skip using cached results
+    """
+    content = input_file.read_text(encoding='utf-8')
 
     content = re.sub(r'-{3,}', '', content)
     # Remove extra newlines
@@ -75,6 +108,8 @@ async def main():
     all_voices = get_voices()
 
     audio_paths = []
+    cache_dir = Path("cache")
+    cache_dir.mkdir(exist_ok=True)
 
     for i, chunk in tqdm(enumerate(chunks), total=len(chunks)):
         if i < START_INDEX:
@@ -83,21 +118,19 @@ async def main():
         if i > 4:
             return
 
-        result_cache_file = f"result-{i}.json"
-        if use_cache:
+        result_cache_file = cache_dir / f"result-{i}.json"
+        if use_cache and result_cache_file.exists():
             try:
-                with open(f"cache/{result_cache_file}", "r") as f:
-                    # generate audio
-                    result = json.load(f)
-                    content = [Dialogue(**d) for d in result["content"]]
-                    voices = {k: Voice(**v) for k,v in result["voices"].items()}
-                    generate_audio(content, voices)
-                    return
+                result = json.loads(result_cache_file.read_text())
+                content = [Dialogue(**d) for d in result["content"]]
+                voices = {k: Voice(**v) for k,v in result["voices"].items()}
+                generate_audio(content, voices)
+                return
             except Exception as e:
                 print(f"no cache available for chunk {i}")
 
-        with open("chunk.txt", "w") as f:
-            f.write(chunk)
+        chunk_file = Path("chunk.txt")
+        chunk_file.write_text(chunk)
         dialogues = tag_dialogues(chunk, use_cache=use_cache)
 
         speakers = set(d.speaker for d in dialogues)
@@ -129,8 +162,13 @@ async def main():
 
         content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
 
-        with open(f"result-{i}.json", "w") as f:
-            json.dump({"content": content_split, "voices": speakers_to_voices}, f, cls=DataclassJSONEncoder)
+        result_file = Path(f"result-{i}.json")
+        result_file.write_text(
+            json.dumps(
+                {"content": content_split, "voices": speakers_to_voices},
+                cls=DataclassJSONEncoder
+            )
+        )
 
         for j, content in enumerate(content_split):
             text = content["text"]
@@ -148,13 +186,13 @@ async def main():
             next_segment = AudioSegment.from_mp3(str(audio_path))
             combined += next_segment
             
-        output_dir = "audio-output"
-        final_path = Path(output_dir) / f"{i:04d}_combined.mp3"
-        final_path.parent.mkdir(parents=True, exist_ok=True)
+        output_dir = Path("audio-output")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        final_path = output_dir / f"{i:04d}_combined.mp3"
         combined.export(str(final_path), format="mp3")
 
     return
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(defopt.run(main, parsers={Path: Path}))

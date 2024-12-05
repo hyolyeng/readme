@@ -1,0 +1,5 @@
+anthropic>=0.32.1
+ebooklib>=0.18.0
+elevenlabs==1.13.3
+pytest>=8.3.3
+defopt>=6.4.0
