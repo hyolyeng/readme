@@ -141,7 +141,7 @@ async def main(
                         chunk_id=i,
                         content_id=j,
                         text=content_item.text,
-                        voice=voices.get(content_item.speaker, voices["default"]),
+                        voice=voices.get(content_item.speaker, voices["NARRATOR"]),
                     )
                 )
             continue

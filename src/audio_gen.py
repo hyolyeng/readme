@@ -162,8 +162,7 @@ def generate_audio(
         data = {
             "text": text,
             "model_id": "eleven_turbo_v2",
-            # Stability is from 0 to 100
-            "voice_settings": {"stability": 0.25, "similarity_boost": 0.81},
+            "voice_settings": {"stability": 0.5, "similarity_boost": 0.5},
         }
         transport = httpx.HTTPTransport(retries=10)
         with httpx.Client(timeout=60.0 * 10, transport=transport) as client:
