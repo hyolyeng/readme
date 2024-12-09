@@ -196,7 +196,7 @@ async def main(
 
             result_cache_file.write_text(
                 json.dumps(
-                    {"content": content_split, "voices": speakers_to_voices, "speaker_last_seen": speaker_last_seen.__dict__},
+                    {"content": content_split, "voices": speakers_to_voices, "speaker_last_seen": dict(speaker_last_seen)},
                     cls=DataclassJSONEncoder,
                 )
         )
