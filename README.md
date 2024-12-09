@@ -20,13 +20,13 @@ A hybrid TypeScript/Python application that converts epub books into audio using
 Install TypeScript dependencies:
 
 ```bash
-npm install --registry=https://registry.npmjs.org/
+npm i
 ```
 
 Install Python dependencies:
 
 ```bash
-pip install pytest
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -52,7 +52,7 @@ python -m pytest
 Run python:
 
 ```bash
-python3 src/main.py worth_the_candle.txt
+python3 src/main.py -i worth_the_candle.txt
 ```
 
 ## Project Structure

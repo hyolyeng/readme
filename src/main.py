@@ -16,6 +16,24 @@ from audio_gen import Voice, assign_voices_to_speakers, generate_audio, get_voic
 from tag_dialogues import Dialogue, split_content_by_speaker, tag_dialogues
 
 
+def combine_audio_files(audio_paths: list[Path], chunk_id: int) -> None:
+    """Combine multiple audio files into a single MP3 file.
+    
+    Args:
+        audio_paths: List of paths to audio files to combine
+        chunk_id: ID of the current chunk for naming the output file
+    """
+    output_dir = Path("audio-output")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    final_path = output_dir / f"{chunk_id:04d}_combined.mp3"
+
+    if final_path.exists() or not audio_paths:
+        return
+    combined = AudioSegment.empty()
+    for audio_path in audio_paths:
+        combined += AudioSegment.from_mp3(audio_path)
+    combined.export(final_path, format="mp3")
+
 def split_into_chunks(content: str, chunk_size: int = 20000) -> list[str]:
     """Break content into roughly equal sized chunks.
 
@@ -134,63 +152,53 @@ async def main(
         result_cache_file = cache_dir / f"result-{i}.json"
         if use_cache and result_cache_file.exists():
             result = json.loads(result_cache_file.read_text())
-            content = [Dialogue(**d) for d in result["content"]]
-            voices = {k: Voice(**v) for k, v in result["voices"].items()}
-            for j, content_item in enumerate(tqdm(content, desc="read cache")):
-                audio_paths.append(
-                    generate_audio(
-                        chunk_id=i,
-                        content_id=j,
-                        text=content_item.text,
-                        voice=voices.get(content_item.speaker, voices["NARRATOR"]),
-                    )
+            content_split = [Dialogue(**d) for d in result["content"]]
+            speakers_to_voices = {k: Voice(**v) for k, v in result["voices"].items()}
+            speaker_last_seen.update(result.get("speaker_last_seen", {}))
+        else:
+            # # Write chunk to file for debugging. Not used elsewhere.
+            # chunk_file = Path("chunk.txt")
+            # chunk_file.write_text(chunk)
+            dialogues = tag_dialogues(chunk, use_cache=use_cache)
+            speakers = set(d.speaker for d in dialogues)
+
+            # Update last seen index for current speakers
+            for speaker in speakers:
+                speaker_last_seen[speaker] = i
+
+            new_speakers = speakers - speakers_to_voices.keys()
+            available_voices = [
+                v for v in all_voices if v not in speakers_to_voices.values()
+            ]
+
+            if len(available_voices) < len(new_speakers):
+                # Get speakers sorted by last seen chunk (oldest first)
+                lru_speakers = sorted(
+                    speakers_to_voices.keys(), key=lambda s: speaker_last_seen[s]
                 )
-            continue
 
-        # # Write chunk to file for debugging. Not used elsewhere.
-        # chunk_file = Path("chunk.txt")
-        # chunk_file.write_text(chunk)
-        dialogues = tag_dialogues(chunk, use_cache=use_cache)
-        speakers = set(d.speaker for d in dialogues)
+                # Remove oldest speakers until we have enough voices
+                for old_speaker in lru_speakers:
+                    if len(available_voices) >= len(new_speakers) * 2 + 5:  # buffer
+                        break
 
-        # Update last seen index for current speakers
-        for speaker in speakers:
-            speaker_last_seen[speaker] = i
+                    freed_voice = speakers_to_voices.pop(old_speaker)
+                    available_voices.append(freed_voice)
 
-        new_speakers = speakers - speakers_to_voices.keys()
-        available_voices = [
-            v for v in all_voices if v not in speakers_to_voices.values()
-        ]
-
-        if len(available_voices) < len(new_speakers):
-            # Get speakers sorted by last seen chunk (oldest first)
-            lru_speakers = sorted(
-                speakers_to_voices.keys(), key=lambda s: speaker_last_seen[s]
+            new_speaker_assignments = assign_voices_to_speakers(
+                new_speakers, available_voices, chunk
             )
+            speakers_to_voices.update(new_speaker_assignments)
+            pprint.pprint({k: v.name for k, v in speakers_to_voices.items()})
 
-            # Remove oldest speakers until we have enough voices
-            for old_speaker in lru_speakers:
-                if len(available_voices) >= len(new_speakers) * 2 + 5:  # buffer
-                    break
+            # Convert dialogues to list of dicts for split_content_by_speaker
+            content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
 
-                freed_voice = speakers_to_voices.pop(old_speaker)
-                available_voices.append(freed_voice)
-
-        new_speaker_assignments = assign_voices_to_speakers(
-            new_speakers, available_voices, chunk
-        )
-        speakers_to_voices.update(new_speaker_assignments)
-        pprint.pprint({k: v.name for k, v in speakers_to_voices.items()})
-
-        # Convert dialogues to list of dicts for split_content_by_speaker
-        content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
-
-        result_file = Path(f"cache/result-{i}.json")
-        result_file.write_text(
-            json.dumps(
-                {"content": content_split, "voices": speakers_to_voices},
-                cls=DataclassJSONEncoder,
-            )
+            result_cache_file.write_text(
+                json.dumps(
+                    {"content": content_split, "voices": speakers_to_voices, "speaker_last_seen": speaker_last_seen.__dict__},
+                    cls=DataclassJSONEncoder,
+                )
         )
 
         for j, content in enumerate(tqdm(content_split, desc=f"Chunk {i}")):
@@ -203,15 +211,7 @@ async def main(
             )
 
         # Combine all audio files into a single MP3 per chunk
-        if audio_paths:
-            combined = AudioSegment.empty()
-            for audio_path in audio_paths:
-                combined += AudioSegment.from_mp3(audio_path)
-
-            output_dir = Path("audio-output")
-            output_dir.mkdir(parents=True, exist_ok=True)
-            final_path = output_dir / f"{i:04d}_combined.mp3"
-            combined.export(str(final_path), format="mp3")
+        combine_audio_files(audio_paths, i)
 
         # Stop early if debug mode is enabled
         if debug:
