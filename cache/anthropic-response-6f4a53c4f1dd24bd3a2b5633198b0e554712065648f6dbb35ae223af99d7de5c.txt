@@ -1,0 +1,226 @@
+
+Amaryllis
+Valencia
+Solace
+Fenn
+Grak
+Juniper
+Bethel
+Craig
+Tiff
+Arthur
+Reimer
+</scratchpad>
+
+<tagged_content>
+<Amaryllis>"We're the military of this country right now,"</Amaryllis>
+<Amaryllis>"Against a single fireteam, I tend to like our odds, depending on their composition, especially if they attack us in this house, in which case they have virtually no chance. That said, it would be idiotic if we died because I wasn't willing to spend a few thousand obols on firearms. And if someone comes for us, then after what happened with Larkspur, I doubt that they'll err on the side of underestimating us."</Amaryllis>
+
+<Valencia>"Jorge and I are going on a date,"</Valencia>
+
+<Amaryllis>"It is incredibly unprofessional for him to ask you on a date,"</Amaryllis>
+
+<Valencia>"Well I was the one to ask him,"</Valencia>
+<Valencia>"Because I knew that he wouldn't have asked me on his own."</Valencia>
+
+<Amaryllis>"Oh,"</Amaryllis>
+<Amaryllis>"It's still incredibly unprofessional for him to accept."</Amaryllis>
+
+<Solace>"I think it's nice,"</Solace>
+<Solace>"He seems like a very safe choice for you to experiment with courtship."</Solace>
+
+<Valencia>"Thank you, Solace,"</Valencia>
+<Valencia>"I didn't say it because I wanted anyone to weigh in, I said it because I wanted to share something important that was happening in my life."</Valencia>
+
+<Amaryllis>"Did you ask him with a devil's skills at manipulation?"</Amaryllis>
+
+<Valencia>"No,"</Valencia>
+
+<Fenn>"That really wasn't a convincing no,"</Fenn>
+
+<Valencia>"I took in a devil to see what I would say,"</Valencia>
+<Valencia>"And then a few more to get second opinions. But when I asked him, it was just me, with my own words. They were only giving advice."</Valencia>
+
+<Fenn>"Seems sketchy,"</Fenn>
+
+<Valencia>"I didn't want to screw it up."</Valencia>
+
+<Amaryllis>"There are things that he can't know,"</Amaryllis>
+
+<Valencia>"I know,"</Valencia>
+
+<Grak>"What do you two talk about?"</Grak>
+
+<Fenn>"Harry Potter,"</Fenn>
+
+<Valencia>"We talk about other things,"</Valencia>
+<Valencia>"It's good, isn't it?"</Valencia>
+
+<Fenn>"It is,"</Fenn>
+<Fenn>"Though some things get lost in translation, and some of it I'm sure Amaryllis would rail against as being bigotry."</Fenn>
+<Fenn>"Greedy goblins, for example."</Fenn>
+
+<Juniper>"I mean, their primary cultural trait on Aerb is still material possession, right?"</Juniper>
+
+<Amaryllis>"You have to make a distinction between the traits of a culture and a species,"</Amaryllis>
+<Amaryllis>"You don't say that goblins are greedy, you don't say that goblins focus on possession of written information, you instead say that historically their society has been dominated by warring gold mages and a veneration of wealth, and that currently, the Kel'e'thar Library engages in some practices which, yes, might contain some elements of greed."</Amaryllis>
+
+<Fenn>"Jesus that's a mouthful,"</Fenn>
+
+<Amaryllis>"Don't take the Lord's name in vain,"</Amaryllis>
+
+<Valencia>"I like Mrs. Rowling's goblins better than Juniper's,"</Valencia>
+<Valencia>"No offense, Juniper."</Valencia>
+
+<Juniper>"I'd really hesitate to call them mine,"</Juniper>
+<Juniper>"Everything on Aerb is kind of … twisted, warped, different in different ways, and some of it was just me being silly or making jokes."</Juniper>
+
+<Fenn>"Yeah, Aerb goblins suck,"</Fenn>
+
+<Amaryllis>"Please never say anything like that in public,"</Amaryllis>
+<Amaryllis>"You're a government official now."</Amaryllis>
+
+<Fenn>"I shall continue to hide and vote how you tell me to vote,"</Fenn>
+<Fenn>"And I'll wait for the next proper adventure we all know is coming."</Fenn>
+
+<Grak>"I itch to have something to do,"</Grak>
+
+<Amaryllis>"After the first round of tuunglings is born, we'll have some time to breathe,"</Amaryllis>
+<Amaryllis>"My engineers are already hard at work, not entirely autonomous at this point, but close enough that I could leave them for a week."</Amaryllis>
+
+<Fenn>"Maybe I'll stay back this time,"</Fenn>
+<Fenn>"Catch some sun, watch some anime, not get shot at or cut in half, that kind of thing."</Fenn>
+
+<Grak>"My hand was cut off,"</Grak>
+<Grak>"I did not complain."</Grak>
+
+<Valencia>"If my hand was cut off it would be gone forever,"</Valencia>
+
+<Amaryllis>"Technically we could ice it and then use surgery to reattach, along with Earth antibiotics and medicines in order to ensure that it would heal properly,"</Amaryllis>
+<Amaryllis>"But you'd be out of action for a very long time, even if the surgery was successful."</Amaryllis>
+
+<Fenn>"Wouldn't you just use some ninjutsu to dodge the attack?"</Fenn>
+
+<Valencia>"Not all fights are possible to win without getting hurt,"</Valencia>
+
+<Fenn>"Well, you've been kicking my fucking ass when we spar, I'll give you that,"</Fenn>
+
+<Grak>"I would vote for Glassy Fields,"</Grak>
+
+<Valencia>"No more votes,"</Valencia>
+
+<Fenn>"Can't we rest on our laurels?"</Fenn>
+<Fenn>"Besides, we haven't even gotten our campaign of Arches back up and running."</Fenn>
+
+<Juniper>"We've been resting on our laurels,"</Juniper>
+<Juniper>"It's true. Amaryllis has been the only one actually doing much work."</Juniper>
+
+<Amaryllis>"There's enough work for whoever wants it,"</Amaryllis>
+
+<Solace>"I've been tending to the locus and attempting to restore my connection to the flowers of my garden,"</Solace>
+<Solace>"I do think that I deserve a bit of rest."</Solace>
+<Solace>"Were we comparing things that we hadn't complained about? I did die, after all."</Solace>
+
+<Fenn>"Well, you did get better,"</Fenn>
+
+<Juniper>"I didn't mean to say that we didn't deserve a break, or that the relative downtime --"</Juniper>
+
+<Juniper>"-- for some of us wasn't deserved or necessary, especially with the months in the time chamber stacked up like they were, nor did I mean to devalue the work that people were doing, but … with Bethel here, it would be easy to simply abandon our higher objectives and settle into the lap of luxury. I don't want to do that."</Juniper>
+
+<Fenn>"I'm happy for the lap I'm in,"</Fenn>
+<Fenn>"There's something to be said for laps."</Fenn>
+
+<Grak>"The Dungeon Master will punish idleness,"</Grak>
+
+<Amaryllis>"I came out of eight months of almost pure idleness entirely unscathed,"</Amaryllis>
+<Amaryllis>"I'm starting to trust Juniper's interpretation of the Dungeon Master's views."</Amaryllis>
+
+<Juniper>"There have got to be limits,"</Juniper>
+<Juniper>"I mean, unless this is going to turn into a totally different game, which I guess is possible, it's really hard to do tabletop games where the game is just managing an estate, or a kingdom, or whatever. The game system isn't set up for massed combat, so all scenarios where there would be massed combat get abstracted out, and the actual play slash narrative is really about this small, plucky band of adventurers doing the things that small bands of people can realistically do."</Juniper>
+<Juniper>"That was always how I'd done it anyway."</Juniper>
+
+<Fenn>"Well I'd rather not have an adventure just for the sake of it,"</Fenn>
+<Fenn>"But speaking of adventures for the sake of it, can we finally play Arches? We're all here, we've got nothing better to do, I've had my campaign ready for ages, and I know that Juniper's got stuff ready if we want to play his. Mary?"</Fenn>
+
+<Amaryllis>"I … yes,"</Amaryllis>
+<Amaryllis>"Give me a minute to file things away, I can spare two or three hours."</Amaryllis>
+
+<Fenn>"Well, that's the hard one,"</Fenn>
+<Fenn>"Grak?"</Fenn>
+
+<Grak>"Yes,"</Grak>
+<Grak>"Juniper's? Or yours?"</Grak>
+
+<Juniper>"Actually,"</Juniper>
+<Juniper>"Bethel and Val have never played a roleplaying game before, so I was thinking that maybe we would start with something fast and easy that we can get through quickly?"</Juniper>
+<Juniper>"Come on, up."</Juniper>
+
+<Solace>"A new game?"</Solace>
+<Solace>"I rather liked Arches."</Solace>
+
+<Juniper>"Arches is rules-light, but it's not that rules-light,"</Juniper>
+<Juniper>"Bethel?"</Juniper>
+
+<Bethel>"I'm listening,"</Bethel>
+
+<Fenn>"Always listening,"</Fenn>
+
+<Bethel>"I don't particularly care if you have sex,"</Bethel>
+<Bethel>"Hundreds of people have had sex in my rooms."</Bethel>
+
+<Fenn>"Well, I care,"</Fenn>
+
+<Solace>"Do you?"</Solace>
+<Solace>"I seem to recall you being quite free with your love."</Solace>
+
+<Amaryllis>"They were,"</Amaryllis>
+
+<Fenn>"If people know, it's -- whatever,"</Fenn>
+<Fenn>"I'm not going to feel ashamed about that. But someone actively watching feels too much like a third person in there with us. I'm not into it."</Fenn>
+
+<Juniper>"I understand,"</Juniper>
+
+<Valencia>"You were saying about a different game?"</Valencia>
+
+<Juniper>"Yeah,"</Juniper>
+<Juniper>"Arches is light on rules, but it's on the heavy end of light, if that makes sense. I was thinking that we could warm up with something that's single stat, single die, what they used to call a one-page game. There are a couple to choose from, ones I know well enough that I shouldn't need a refresher, and Bethel should be able to snag the rules. In Honey Heist you're all different bears and you've got two stats, Bear and Criminal that you use for everything, um, Lasers and Feelings probably doesn't translate, since it's a Star Trek pastiche, and the same probably goes for Actual Cannibal Shia LaBeouf, which --"</Juniper>
+
+<Amaryllis>"Stop,"</Amaryllis>
+<Amaryllis>"No one speak."</Amaryllis>
+
+<Amaryllis>"No, stop. No one say another fucking word,"</Amaryllis>
+<Amaryllis>"Infohazard. Don't speak without thinking about every single word coming out of your mouth, no nouns, keep yourself to the most common hundred words in Anglish."</Amaryllis>
+<Amaryllis>"We need to go to war footing, there's a sixty percent chance that most of us will be dead in the next hour, start getting armored up, now. Quickly."</Amaryllis>
+
+<Amaryllis>"Barriers won't work,"</Amaryllis>
+<Amaryllis>"Wards won't work. Obstructions won't work, raw killing power won't work, magic will be shrugged off or only partially successful, no known entad can stop him, and he scales to any threats. On the first invocation of the word there's a sixty percent chance he'll appear, and if he does we're absolutely fucked -- no Juniper, don't write anything down."</Amaryllis>
+
+<Juniper>"Can … I … think?"</Juniper>
+
+<Amaryllis>"Think all you want,"</Amaryllis>
+<Amaryllis>"Maintain protocol for speech, no writing whatsoever."</Amaryllis>
+
+<Amaryllis>"Sixty percent he comes, forty percent he doesn't,"</Amaryllis>
+<Amaryllis>"I'll explain after, if I can."</Amaryllis>
+
+<Juniper>"You've come up to Craig's cabin for the weekend, prepared for a night of gaming, but not knowing the horrible fate that awaits you,"</Juniper>
+
+<Craig>"Spooky,"</Craig>
+
+<Juniper>"It is spooky,"</Juniper>
+<Juniper>"There have been little things, little signs, the old man who issued you a word of warning at the gas station, a blood-smeared sign you passed by on the dirt road, which you told yourselves was just roadkill, the sound the radio made when you turned it on that seemed very much like a pained scream before the radio shorted out."</Juniper>
+<Juniper>"But you've almost managed to forget all the foreboding and have settled in for a night enjoying each other's company. The fireplace crackles beside you. Suddenly, your idle conversation is interrupted when one of the windows rattles,"</Juniper>
+
+<Tiff>"Must have been the wind?"</Tiff>
+
+<Juniper>"Might have been,"</Juniper>
+
+<Arthur>"Anyway, as I was saying,"</Arthur>
+<Arthur>"My father got me this neat book full of Aramaic, and I was going to try to read some of it."</Arthur>
+
+<Reimer>"Can I be armed?"</Reimer>
+
+<Juniper>"Wouldn't do you any good,"</Juniper>
+
+<Reimer>"Really?"</Reimer>
+</tagged_content>
