@@ -6,3 +6,4 @@ defopt>=6.4.0
 dotenv
 httpx
 defopt
+kokoro-onnx

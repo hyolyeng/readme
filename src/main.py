@@ -1,24 +1,24 @@
 import asyncio
-import datetime
-import pprint
-import defopt
 import json
+import pprint
 import re
-
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from pydub import AudioSegment
-from tqdm import tqdm
 from typing import Any
 
-from audio_gen import Voice, assign_voices_to_speakers, generate_audio, get_voices
+import defopt
+from pydub import AudioSegment
+from tqdm import tqdm
+
+from audio_gen import (Voice, assign_voices_to_speakers, generate_audio,
+                       get_voices)
 from tag_dialogues import Dialogue, split_content_by_speaker, tag_dialogues
 
 
 def combine_audio_files(audio_paths: list[Path], chunk_id: int) -> None:
     """Combine multiple audio files into a single MP3 file.
-    
+
     Args:
         audio_paths: List of paths to audio files to combine
         chunk_id: ID of the current chunk for naming the output file
@@ -33,6 +33,7 @@ def combine_audio_files(audio_paths: list[Path], chunk_id: int) -> None:
     for audio_path in audio_paths:
         combined += AudioSegment.from_mp3(audio_path)
     combined.export(final_path, format="mp3")
+
 
 def split_into_chunks(content: str, chunk_size: int = 20000) -> list[str]:
     """Break content into roughly equal sized chunks.
@@ -153,7 +154,8 @@ async def main(
         if use_cache and result_cache_file.exists():
             result = json.loads(result_cache_file.read_text())
             content_split = [Dialogue(**d) for d in result["content"]]
-            speakers_to_voices = {k: Voice(**v) for k, v in result["voices"].items()}
+            speakers_to_voices = {k: Voice(**v)
+                                  for k, v in result["voices"].items()}
             speaker_last_seen.update(result.get("speaker_last_seen", {}))
         else:
             # # Write chunk to file for debugging. Not used elsewhere.
@@ -192,14 +194,16 @@ async def main(
             pprint.pprint({k: v.name for k, v in speakers_to_voices.items()})
 
             # Convert dialogues to list of dicts for split_content_by_speaker
-            content_split = split_content_by_speaker(content=chunk, dialogues=dialogues)
+            content_split = split_content_by_speaker(
+                content=chunk, dialogues=dialogues)
 
             result_cache_file.write_text(
                 json.dumps(
-                    {"content": content_split, "voices": speakers_to_voices, "speaker_last_seen": dict(speaker_last_seen)},
+                    {"content": content_split, "voices": speakers_to_voices,
+                        "speaker_last_seen": dict(speaker_last_seen)},
                     cls=DataclassJSONEncoder,
                 )
-        )
+            )
 
         for j, content in enumerate(tqdm(content_split, desc=f"Chunk {i}")):
             text = content.text
@@ -207,7 +211,8 @@ async def main(
             voice = speakers_to_voices[speaker]
 
             audio_paths.append(
-                generate_audio(chunk_id=i, content_id=j, text=text, voice=voice)
+                generate_audio(chunk_id=i, content_id=j,
+                               text=text, voice=voice)
             )
 
         # Combine all audio files into a single MP3 per chunk

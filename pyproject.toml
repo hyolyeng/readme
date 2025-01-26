@@ -1,0 +1,21 @@
+[project]
+name = "readme"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "kokoro-onnx>=0.3.6",
+  "soundfile>=0.13.1",
+  "anthropic>=0.32.1",
+  "ebooklib>=0.18.0",
+  "elevenlabs==1.13.3",
+  "pytest>=8.3.3",
+  "defopt>=6.4.0",
+  "python-dotenv",
+  "httpx",
+  "defopt",
+  "kokoro-onnx",
+  "pydub>=0.25.1",
+  "tqdm>=4.67.1",
+]
