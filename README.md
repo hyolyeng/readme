@@ -26,7 +26,12 @@ npm i
 Install Python dependencies:
 
 ```bash
-pip install -r requirements.txt
+brew install uv wget
+uv init -p 3.12
+uv pip install -e .
+wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files/kokoro-v0_19.onnx
+wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files/voices.bin
+
 ```
 
 ## Usage
@@ -52,7 +57,7 @@ python -m pytest
 Run python:
 
 ```bash
-python3 src/main.py -i worth_the_candle.txt
+uv run src/main.py -i worth_the_candle.txt
 ```
 
 ## Project Structure
